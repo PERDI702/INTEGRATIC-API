@@ -1,7 +1,7 @@
 import express from "express";
 //import exphbs from "express-handlebars";
-import { create } from "express-handlebars";
-import indexRoutes from "./index.routes";
+import {create} from "express-handlebars";
+import indexRoutes from "./routes/index.routes";
 import path from "path";
 
 const app = express();
@@ -16,10 +16,12 @@ app.engine(
   ".hbs",
   create({
     layoutsDir: path.join(app.get("views"), "layouts"),
+    partialsDir: path.join(app.get("views"), "partials"),
     defaultLayout: "default-layout",
     extname: ".hbs",
   }).engine
 );
+
 app.set("view engine", ".hbs");
 
 // Routes
