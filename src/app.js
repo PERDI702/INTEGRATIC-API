@@ -3,6 +3,7 @@ import express from "express";
 import {create} from "express-handlebars";
 import indexRoutes from "./routes/index.routes";
 import path from "path";
+import morgan from "morgan";
 
 const app = express();
 
@@ -23,6 +24,10 @@ app.engine(
 );
 
 app.set("view engine", ".hbs");
+
+// Middlewares
+app.use(morgan('dev'));
+app.use(express.urlencoded({ extended: false}));
 
 // Routes
 app.use(indexRoutes);

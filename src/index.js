@@ -3,8 +3,9 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const userRoutes = require("./routes/users");
 import app from "./app";
+import "./database";
 
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || 3000;
 
 //middleware
 app.use(express.json());
