@@ -1,0 +1,27 @@
+<!-- Recorrer todos los elementos del modelo computers y listarlos -->
+<table>
+  <thead>
+    <tr>
+      <th>N.</th>
+      <th>Serial</th>
+      <th>Dependencia</th>
+      <th>Operaciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each computers}}
+      <tr>
+        <!-- td es celda de la fila -->
+        <td>{{@index}}</td>
+        <td><font face="Verdana Black">{{serial}}</font></td>
+        <td>{{dependencia}}</td>
+        <td>
+            <button>Editar</button>
+            <button>Eliminar</button>
+            <button>Actualizar</button>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

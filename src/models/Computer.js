@@ -13,4 +13,5 @@ const computerSchema = new Schema({
   timestamps: true
 });
 
+//Nombre del modelo
 export default model("Task", computerSchema);
