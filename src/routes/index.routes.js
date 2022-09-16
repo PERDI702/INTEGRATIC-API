@@ -29,8 +29,10 @@ router.get("/about", (req, res) => {
 });
 
 //Ruta a la pagina edit
-router.get("/edit", (req, res) => {
-  res.render("edit");
+router.get("/edit/:id", async (req, res) => {
+  const consulta = await Computer.findById(req.params.id).lean();
+
+  res.render("edit", { consulta });
 });
 
 //Ruta a la pagina computer donde lista todos los computadores registrados
@@ -38,6 +40,18 @@ router.get("/computer", async (req, res) => {
   const computers = await Computer.find().lean();
 
   res.render("computer", { computers: computers });
+});
+
+//Ruta para actualizar datos
+router.post("/edit/:id", async (req, res) => {
+  try {
+    const {id} = req.params;
+    await Computer.findByIdAndUpdate(id, req.body);
+
+    res.redirect("/computer");
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 export default router;

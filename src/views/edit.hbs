@@ -1,1 +1,18 @@
-<h1>EDITANDO</h1>
+<form action="/edit/{{consulta._id}}" method="post">
+
+  <input
+    type="text"
+    name="serial"
+    placeholder="Ingresar serial"
+    value="{{consulta.serial}}"
+  />
+
+  <textarea
+    name="dependencia"
+    rows="3"
+    placeholder="Ingresar dependencia"
+  >{{consulta.dependencia}}</textarea>
+
+  <button>Actualizar</button>
+
+</form>
